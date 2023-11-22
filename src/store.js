@@ -44,7 +44,7 @@ class Store {
   addItem() {
     this.setState({
       ...this.state,
-      list: [...this.state.list, {code: this.state.list.length + 1, title: 'Новая запись'}]
+      list: [...this.state.list, {code:  this.generateKey(), title: 'Новая запись',selectCounter: 0}]
     })
   };
 
@@ -69,10 +69,31 @@ class Store {
       list: this.state.list.map(item => {
         if (item.code === code) {
           item.selected = !item.selected;
+          item.selectCounter+=1;
+        }else {
+          item.selected = false;
         }
         return item;
       })
     })
+  }
+  /**
+    * Гарантировать уникальный ключ.
+    * @param code
+    * @returns {Number} Новый ключ.
+  */
+  generateKey = (code) => {
+    let key,check= false;
+    do{
+     key = Math.floor((Math.random() * 10000000) + 1);
+     check = false;
+      this.state.list.map(item => {
+        if(key === item.code) {
+          check = true;
+        }
+      })
+    }while(check)
+    return key;
   }
 }
 
