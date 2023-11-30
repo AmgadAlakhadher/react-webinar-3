@@ -32,6 +32,14 @@ let config = {
           {loader: 'css-loader', options: {url: true, import: true}},
         ]
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      },
     ]
   },
   plugins: [

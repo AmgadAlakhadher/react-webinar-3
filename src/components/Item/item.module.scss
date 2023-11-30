@@ -1,0 +1,36 @@
+.List_item {
+    border-bottom: 1px dashed #ccc;
+}
+.Item {
+    display: flex;
+    justify-content: flex-start;
+    transition: background-color 1s;
+}
+
+.Item_selected {
+    background: #75aaf1;
+    color: #fff;
+}
+
+.Item_code {
+    padding: 20px 10px 20px 20px;
+}
+
+.Item_title {
+    width: 100%;
+    padding: 20px 10px;
+}
+
+.Item_actions {
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 5px;
+    min-width: 250px;
+}
+.Item_actions * {
+    display: inline-block;
+    margin-left: 20px;
+}
+.Item_actions button{
+    // margin-left: 15px;
+}
